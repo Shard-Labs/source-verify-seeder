@@ -1,8 +1,11 @@
-import { Sequelize } from "sequelize";
+import { Sequelize, Dialect } from "sequelize";
+import dotenv from 'dotenv'
 
-const sequelize: Sequelize = new Sequelize('database', 'postgres', 'password', {
+dotenv.config()
+
+const sequelize: Sequelize = new Sequelize(process.env.DATABASE, process.env.DBUSER, process.env.PASSWORD, {
     host: process.env.HOST,
-    dialect: "postgres"
+    dialect: process.env.DIALECT as Dialect
 });
 
 // This is used to test connection with database

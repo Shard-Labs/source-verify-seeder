@@ -1,9 +1,9 @@
-import express from 'express'
+import express, { Router } from 'express'
 import { Request, Response } from 'express'
 
 export default class HomeRoute {
-    public path = '/'
-    public router = express.Router()
+    public path: string = '/'
+    public router: Router = express.Router()
 
     constructor() {
         this.initRoutes()

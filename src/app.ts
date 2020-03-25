@@ -34,7 +34,3 @@ export default class App {
         })
     }
 }
-
-// dotenv.config();
-
-// const port: any = process.env.SERVER_PORT || 3000; // default port to listen

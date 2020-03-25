@@ -1,13 +1,17 @@
 import App from './app'
 
+import dotenv from 'dotenv'
+
 import HomeRoute from './routes/home.router'
 import bodyParser from 'body-parser'
 import errorMiddleware from './middleware/errorMiddleware'
 import {loggerMiddleware} from './middleware/logger'
 import {db} from "./models/init";
 
-const app = new App({
-    port: 8080,
+dotenv.config()
+
+const app: App = new App({
+    port: parseInt(process.env.SERVER_PORT, 10),
     controllers: [
         new HomeRoute()
     ],
