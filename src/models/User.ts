@@ -1,5 +1,3 @@
-
-
 module.exports = (sequelize: any, Sequelize: any) => {
     const User: any = sequelize.define('user', {
         id: {
