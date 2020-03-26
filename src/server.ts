@@ -10,7 +10,7 @@ import {db} from "./database/models/init";
 
 dotenv.config()
 
-const appInstance: any = new App({
+const appInstance: App = new App({
     port: parseInt(process.env.SERVER_PORT, 10),
     database: db
 })

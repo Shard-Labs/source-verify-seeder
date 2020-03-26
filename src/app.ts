@@ -1,12 +1,17 @@
 import express from 'express';
 import { Application } from "express";
 
+interface AppConf {
+    port: number,
+    database: any
+}
+
 export default class App {
     public app: Application;
     private port: number
     private database: any
 
-    constructor(appInit: { port: number, database: any}) {
+    constructor(appInit: AppConf) {
         this.app = express()
         this.port = appInit.port
         this.database = appInit.database
