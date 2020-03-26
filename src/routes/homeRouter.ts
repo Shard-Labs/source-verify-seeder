@@ -1,17 +1,8 @@
-import express, { Router } from 'express'
-import { Request, Response } from 'express'
+import express, { Router } from 'express';
+import { Request, Response } from 'express';
 
-export default class HomeRoute {
-    private path: string = '/'
-    public router: Router = express.Router()
+export let homeRouter = express.Router();
 
-    constructor() {
-        this.initRoutes()
-    }
-
-    public initRoutes() {
-        this.router.get(this.path, (req: Request, res: Response) => {
-            res.send("Welcome to template app");
-        })
-    }
-}
+homeRouter.get('/', (req: Request, res: Response) => {
+    res.send("Welcome to template app");
+});

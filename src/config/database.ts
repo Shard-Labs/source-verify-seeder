@@ -1,5 +1,5 @@
 // tslint:disable-next-line:no-var-requires
-require('dotenv').config()
+require('dotenv').config();
 
 module.exports = {
     "development": {
