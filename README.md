@@ -9,7 +9,7 @@ Requirements:
 
 ## Steps:
 * `docker-compose up`
-* Visit localhost:<port> // port matches one in *.env* file
+* Visit localhost:port // port matches one in *.env* file
 
 # Regular method
 Requirements:
@@ -22,4 +22,4 @@ Requirements:
 * `npm install`
 * `npm run migrate`
 * `npm run start`
-* Visit localhost:<port> // port matches one in *.env* file
+* Visit localhost:port // port matches one in *.env* file
