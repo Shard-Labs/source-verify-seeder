@@ -23,5 +23,4 @@ sequelize
 export const db: any = {
     Sequelize,
     sequelize,
-    table: require("./User")(sequelize, Sequelize)
 };
