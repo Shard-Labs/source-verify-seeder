@@ -13,6 +13,9 @@
     "migrate": "npm run build && node_modules/.bin/sequelize db:migrate --env development",
     "migrate:undo": "npm run build && node_modules/.bin/sequelize db:migrate:undo --env development",
     "migrate:undo:all": "npm run build && node_modules/.bin/sequelize db:migrate:undo:all --env development",
+    "seed": "node_modules/.bin/sequelize db:seed:all",
+    "seed:undo": "node_modules/.bin/sequelize db:seed:undo",
+    "seed:undo:all": "node_modules/.bin/sequelize db:seed:undo:all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
