@@ -1,4 +1,4 @@
-import { DataTypes, FindOptions, Model, ModelCtor, Sequelize } from 'sequelize';
+/* import { DataTypes, FindOptions, Model, ModelCtor, Sequelize } from 'sequelize';
 import { BaseModel } from './base';
 
 // defining properties for our User model
@@ -65,4 +65,4 @@ export default class User extends BaseModel implements IUser {
   // region Instance Model methods
 
   // endregion
-}
+} */

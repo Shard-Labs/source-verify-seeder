@@ -1,10 +1,10 @@
-import { QueryInterface, DataTypes } from 'sequelize';
-import User from '../models/User';
+/* import { QueryInterface, DataTypes } from 'sequelize';
+import User from '../models/User'; */
 
 /* *
  * function that sequelize-cli runs if you want to add this migration to your database
  * */
-export async function up(query: QueryInterface) {
+/* export async function up(query: QueryInterface) {
     try {
         return query.createTable(User.TableName, {
             id: {
@@ -49,15 +49,15 @@ export async function up(query: QueryInterface) {
     } catch (e) {
         return Promise.reject(e);
     }
-}
+} */
 
 /* *
  * function that sequelize-cli runs if you want to remove this migration from your database
  * */
-export async function down(query: QueryInterface) {
+/* export async function down(query: QueryInterface) {
     try {
         return query.dropTable(User.TableName);
     } catch (e) {
         return Promise.reject(e);
     }
-}
+} */
