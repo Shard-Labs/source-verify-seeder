@@ -20,4 +20,7 @@ appInstance.app.use(loggerMiddleware);
 appInstance.app.use(errorMiddleware);
 appInstance.app.use('/', homeRouter);
 
+import {userRouter} from "./routes/userRoutes";
+appInstance.app.use('/api/users', userRouter);
+
 appInstance.listen();

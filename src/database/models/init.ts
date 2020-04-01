@@ -20,7 +20,10 @@ sequelize
         console.error('Unable to connect to the database:', err);
     });
 
+import User from "./User";
+
 export const db: any = {
     Sequelize,
     sequelize,
+    users: User
 };
