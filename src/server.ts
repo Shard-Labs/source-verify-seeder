@@ -24,7 +24,7 @@ appInstance.app.use('/', homeRouter);
 
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-import { User } from "./entity/User";
+import { User } from "./database/models/User";
 
 createConnection().then(async connection => {
     // tslint:disable-next-line:no-console
