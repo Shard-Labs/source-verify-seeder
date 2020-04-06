@@ -5,6 +5,6 @@ services:
     ports:
       - "${DBPORT}:${DBPORT}"
     env_file: 
-      - docker-compose.env
+      - .env.docker
     networks: 
       - project 

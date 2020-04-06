@@ -3,3 +3,4 @@ WORKDIR /home/app/
 COPY / .
 RUN mv .env.docker .env
 RUN npm install
+CMD [ "npm", "run", "start" ]
