@@ -1,5 +1,5 @@
 FROM node:10.15.1
 WORKDIR /home/app/
 COPY / .
-RUN mv docker-compose.env .env
+RUN mv .env.docker .env
 RUN npm install
