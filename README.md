@@ -14,14 +14,14 @@ Requirements:
 
 # Regular method
 Requirements:
-* database such as *PostgreSQL* or *MySQL* or any other compatible with *sequelize* ORM
+* database such as *PostgreSQL* or *MySQL* or any other compatible with *TypeORM*
 * *Node.js*
 * *npm*
 
 ## Steps:
 * Run your database and configure accordingly your *.env* file
 * `npm install`
-* `npm run migrate`
+* `./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run`
 * `npm run start`
 * Visit localhost:port 
     * port matches one in *.env* file
