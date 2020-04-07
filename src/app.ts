@@ -8,7 +8,6 @@ interface AppConf {
 export default class App {
     public app: Application;
     private port: number;
-    private database: any;
 
     constructor(appInit: AppConf) {
         this.app = express();

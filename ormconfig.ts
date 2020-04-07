@@ -1,6 +1,5 @@
  require("dotenv").config();
 
-
 module.exports = {
    type: process.env.DIALECT,
    host: process.env.HOST,
