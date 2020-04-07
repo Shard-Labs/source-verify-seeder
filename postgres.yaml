@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  db:
+    container_name: db
+    image: postgres:12.2
+    ports:
+      - "${DBPORT}:${DBPORT}"
+    env_file: 
+      - .env.docker
+    restart: always
