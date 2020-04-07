@@ -36,7 +36,7 @@ userRouter.post('/', async (req: Request, res: Response, next) => {
     })
 });
 
-userRouter.put('/', async (req: Request, res: Response, next) => {
+userRouter.put('/:id', async (req: Request, res: Response, next) => {
     const start = performance.now();
     const result = await userController.update(req.params.id, req.body);
     const time = performance.now() - start;

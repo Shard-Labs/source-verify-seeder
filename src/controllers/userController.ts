@@ -5,7 +5,7 @@ import { BaseController } from "./baseController";
 export class UserController implements BaseController {
 
     async getAll() {
-        return await getConnection().getRepository(User).find();;
+        return await getConnection().getRepository(User).find();
     }
 
     async getByID(id: any) {
