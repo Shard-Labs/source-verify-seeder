@@ -4,7 +4,7 @@ import { BaseController } from "./baseController";
 
 export class UserController implements BaseController {
 
-    async getAll(): Promise<Array<User>> {
+    async getAll(): Promise<User[]> {
         return await getConnection().getRepository(User).find();
     }
 
