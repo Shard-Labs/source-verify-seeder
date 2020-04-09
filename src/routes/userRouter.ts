@@ -25,7 +25,7 @@ userRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
 userRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
     const start: number = performance.now();
     try {
-        const result: User = await userController.getByID(parseInt(req.params.id, 10));
+        const result: User = await userController.getByID(req.params.id);
         const time: number = performance.now() - start;
         res.status(200).json({
             result,
@@ -55,7 +55,7 @@ userRouter.post('/', async (req: Request, res: Response, next: NextFunction) => 
 userRouter.put('/:id', async (req: Request, res: Response, next: NextFunction) => {
     const start: number = performance.now();
     try {
-        const result: UpdateResult = await userController.update(parseInt(req.params.id, 10), req.body);
+        const result: UpdateResult = await userController.update(req.params.id, req.body);
         const time: number = performance.now() - start;
         res.status(200).json({
             result,
@@ -69,7 +69,7 @@ userRouter.put('/:id', async (req: Request, res: Response, next: NextFunction) =
 userRouter.delete('/:id', async (req: Request, res: Response, next) => {
     const start: number = performance.now();
     try {
-        const result: void = await userController.delete(parseInt(req.params.id, 10));
+        const result: void = await userController.delete(req.params.id);
         const time: number = performance.now() - start;
         res.status(200).json({
             result,

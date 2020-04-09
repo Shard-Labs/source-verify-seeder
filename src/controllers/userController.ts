@@ -8,7 +8,7 @@ export class UserController implements BaseController {
         return await getConnection().getRepository(User).find();
     }
 
-    async getByID(id: number): Promise<User> {
+    async getByID(id: string): Promise<User> {
         return await getConnection().getRepository(User).findOne(id);
     }
 
@@ -16,11 +16,11 @@ export class UserController implements BaseController {
         return await getConnection().getRepository(User).save(object);
     }
 
-    async update(id: number, object: object): Promise<UpdateResult> {
+    async update(id: string, object: object): Promise<UpdateResult> {
         return await getConnection().getRepository(User).update(id, object);
     }
 
-    async delete(id: number): Promise<void> {
+    async delete(id: string): Promise<void> {
         const userToRemove: User = await this.getByID(id);
         await getConnection().getRepository(User).remove(userToRemove);
     }
