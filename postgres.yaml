@@ -4,7 +4,7 @@ services:
     container_name: db
     image: postgres:12.2
     ports:
-      - "${DBPORT}:${DBPORT}"
+      - "${EXTERNALDBPORT}:${DBPORT}"
     env_file: 
       - .env.docker
     restart: always
