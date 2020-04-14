@@ -1,8 +1,15 @@
 import winston from 'winston';
+import { Timestamp } from 'typeorm';
+import { json } from 'body-parser';
 
 export const logger = winston.createLogger({
     level: 'info',
-    format: winston.format.json(),
+    format: winston.format.combine(
+        winston.format.timestamp({
+            format: 'YYYY-MM-DD HH:mm:ss'
+        }),
+        winston.format.json()
+    ),
     defaultMeta: { service: 'user-service' },
     transports: [
         //
@@ -11,6 +18,10 @@ export const logger = winston.createLogger({
         //
         new winston.transports.File({ filename: 'src/logger/error.log', level: 'error' }),
         new winston.transports.File({ filename: 'src/logger/combined.log' })
+    ],
+    exceptionHandlers: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'src/logger/exceptions.log' })
     ]
 });
 
