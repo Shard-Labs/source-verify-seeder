@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
+import { logger } from '../logger/winston';
 
 export const loggerMiddleware = (req: Request, resp: Response, next: NextFunction) => {
-    // tslint:disable-next-line:no-console
-    console.log('Request logged:', req.method, req.path);
+    logger.info('Request logged: ' + req.method + ' ' + req.path + new Date());
     next();
 }
 
