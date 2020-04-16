@@ -2,15 +2,14 @@
    "name": "express-typescript-template",
    "version": "1.0.0",
    "description": "template for using with other project in need of ts express based backend",
-   "main": "dist/server.js",
+   "main": "dist/app.js",
    "scripts": {
       "clean": "rimraf ./dist",
       "check": "./node_modules/.bin/dependency-check  package.json --missing",
-      "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
       "build": "npm run clean && tsc",
       "prestart": "npm run build && npm run check",
-      "start": "node .",
-      "dev": "nodemon",
+      "start": "node src/server.js",
+      "dev": "nodemon ",
       "migrate": "npm run build && ./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run",
       "migrate:undo": "npm run build && ./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:revert",
       "test": "echo \"Error: no test specified\" && exit 1"
@@ -30,6 +29,7 @@
       "body-parser": "^1.19.0",
       "dotenv": "^8.2.0",
       "express": "^4.17.1",
+      "n-readlines": "^1.0.0",
       "path": "^0.12.7",
       "pg": "^7.3.0",
       "pg-hstore": "^2.3.3",
@@ -46,7 +46,6 @@
       "dependency-check": "^4.1.0",
       "nodemon": "^2.0.2",
       "ts-node": "3.3.0",
-      "tslint": "^6.1.0",
       "typescript": "3.3.3333"
    }
 }

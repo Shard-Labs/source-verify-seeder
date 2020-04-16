@@ -1,33 +1,33 @@
-import App from './app';
-
-import dotenv from 'dotenv';
-
-import { homeRouter } from './routes/homeRouter';
-import { userRouter } from './routes/userRouter';
-import bodyParser from 'body-parser';
-import errorMiddleware from './middleware/errorMiddleware';
-import { loggerMiddleware } from './middleware/logger';
+import { MetadataSeed } from "./database/seeds/metadataSeed";
+import "reflect-metadata";
+import { createConnection } from "typeorm";
+import readline from "readline";
+import path from "path";
+import dotenv from "dotenv";
+const lineByLine = require('n-readlines');
 
 dotenv.config();
 
-import "reflect-metadata";
-import { createConnection } from "typeorm";
-import { UserSeed } from "./database/seeds/userSeed";
+const liner = new lineByLine(path.resolve(__dirname, process.env.FILENAME))
+const inputLines: string[] = []
 
-const appInstance: App = new App({
-    port: parseInt(process.env.SERVER_PORT, 10)
-});
-appInstance.app.use(bodyParser.json());
-appInstance.app.use(bodyParser.urlencoded({ extended: true }));
-appInstance.app.use(loggerMiddleware);
-appInstance.app.use(errorMiddleware);
-appInstance.app.use('/', homeRouter);
+// const rl = readline.createInterface({
+//     input: fs.createReadStream(path.resolve(__dirname, process.env.FILENAME))
+// });
+
+function fileParser() {
+    let lines: string[] = [];
+    let line;
+    while(line = liner.next()){
+        lines.push(line)
+        if(lines.length > 100){
+            Promise.all(MetadataSeed(lines)).then((result) => {
+                lines = [];
+            });
+        }
+    }
+}
 
 createConnection().then(async connection => {
-    // tslint:disable-next-line:no-unused-expression
-    new UserSeed();
-    appInstance.app.use('/api/users', userRouter);
-    // tslint:disable-next-line:no-console
+    fileParser();
 }).catch(error => console.log(error));
-
-appInstance.listen();
