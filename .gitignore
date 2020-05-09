@@ -3,3 +3,5 @@
 node_modules/
 dist/
 src/logger/*.log
+files/codedb.txt
+files/codedb.zip
