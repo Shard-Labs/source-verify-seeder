@@ -1,14 +1,17 @@
 {
-   "name": "express-typescript-template",
+   "name": "source-verify-seeder",
    "version": "1.0.0",
    "description": "template for using with other project in need of ts express based backend",
-   "main": "dist/app.js",
+   "main": "dist/server.js",
    "scripts": {
+      "migration:generate": "./node_modules/typeorm/cli.js migration:create -n Metadata",
+      "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
+      "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert",
       "clean": "rimraf ./dist",
-      "check": "./node_modules/.bin/dependency-check  package.json --missing",
+      "check": "./node_modules/.bin/dependency-check package.json --missing",
       "build": "npm run clean && tsc",
-      "prestart": "npm run build && npm run check",
-      "start": "node src/server.js",
+      "prestart": "npm run build",
+      "start": "node dist/server.js",
       "dev": "nodemon ",
       "migrate": "npm run build && ./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run",
       "migrate:undo": "npm run build && ./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:revert",
@@ -31,21 +34,21 @@
       "express": "^4.17.1",
       "n-readlines": "^1.0.0",
       "path": "^0.12.7",
-      "pg": "^7.3.0",
+      "pg": "^7.18.2",
       "pg-hstore": "^2.3.3",
-      "reflect-metadata": "^0.1.10",
+      "reflect-metadata": "^0.1.13",
       "rimraf": "^3.0.2",
-      "typeorm": "0.2.24",
+      "typeorm": "^0.2.24",
       "winston": "^3.2.1"
    },
    "devDependencies": {
       "@types/dotenv": "^8.2.0",
       "@types/express": "^4.17.3",
       "@types/faker": "^4.1.11",
-      "@types/node": "^8.0.29",
+      "@types/node": "^8.10.60",
       "dependency-check": "^4.1.0",
       "nodemon": "^2.0.2",
       "ts-node": "3.3.0",
-      "typescript": "3.3.3333"
+      "typescript": "^3.8.3"
    }
 }

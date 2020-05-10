@@ -18,6 +18,7 @@ module.exports = {
    subscribers: [
       process.env.SUBSCRIBERS
    ],
+   migrationTableName: process.env.TABLE_NAME,
    cli: {
       entitiesDir: "src/database/models",
       migrationsDir: "src/database/migration",

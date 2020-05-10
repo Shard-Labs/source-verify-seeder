@@ -1,9 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
 export class Metadata {
 
-    @PrimaryGeneratedColumn("uuid")
+    @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column({
@@ -15,7 +15,7 @@ export class Metadata {
         type: 'bytea',
         nullable: false
     })
-    creationBytecode: string;
+    creationBytecode: Buffer;
 
     @Column({
         nullable: false

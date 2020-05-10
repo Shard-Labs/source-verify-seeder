@@ -7,15 +7,15 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "nodemon",
+            "runtimeExecutable": "/home/user/.nvm/versions/node/v10.16.0/bin/nodemon",
+            "program": "${workspaceFolder}/dist/server.js",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "openOnSessionStart",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/dist/server.js",
-            "preLaunchTask": "tsc: build - tsconfig.json",
-            "outFiles": [
-                "${workspaceFolder}/dist/**/*.js"
-            ]
         }
     ]
 }
