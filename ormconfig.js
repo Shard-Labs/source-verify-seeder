@@ -1,4 +1,4 @@
- require("dotenv").config();
+require("dotenv").config();
 
 module.exports = {
    type: process.env.DIALECT,
@@ -7,8 +7,8 @@ module.exports = {
    username: process.env.POSTGRES_USER,
    password: process.env.POSTGRES_PASSWORD,
    database: process.env.POSTGRES_DB,
-   synchronize: false,
-   logging: false,
+   synchronize: true,
+   logging: true,
    entities: [
       process.env.ENTITIES
    ],
@@ -20,8 +20,8 @@ module.exports = {
    ],
    migrationTableName: process.env.TABLE_NAME,
    cli: {
-      entitiesDir: "src/database/models",
-      migrationsDir: "src/database/migration",
-      subscribersDir: "src/database/subscriber"
+      entitiesDir: "/home/app/dist/database/models",
+      migrationsDir: "/home/app/dist/database/migration",
+      subscribersDir: "/home/app/dist/database/subscriber"
    }
 }

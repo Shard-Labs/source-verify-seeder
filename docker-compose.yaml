@@ -5,8 +5,6 @@ services:
     container_name: db-seeder
     ports:
       - "${SERVER_PORT}:${SERVER_PORT}"
-    env_file:
-      - .env.docker
     command: bash -c "npm run migrate && npm run start"
     restart: always
     volumes: 

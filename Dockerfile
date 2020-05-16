@@ -1,8 +1,9 @@
-FROM node:10.15.1
+FROM node:10.16.0
 WORKDIR /home/app/
 COPY ./ ./
 RUN npm install
-# RUN npm run build
+RUN npm run build
+COPY .env.docker .env
 # RUN ls -al
 
 # FROM node:10.15.1
