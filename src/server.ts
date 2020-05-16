@@ -19,7 +19,7 @@ async function fileParser() {
     let lines: string[] = [];
     let line;
     while(line = liner.next()){
-        if(lines.length > 50000){
+        if(lines.length > 10000){
             await Promise.all(MetadataSeed(lines)).then((result) => {
                 lines = [];
             });

@@ -1,6 +1,12 @@
 FROM node:10.15.1
 WORKDIR /home/app/
-COPY / .
-RUN mv .env.docker .env
+COPY ./ ./
 RUN npm install
-CMD [ "npm", "run", "start" ]
+# RUN npm run build
+# RUN ls -al
+
+# FROM node:10.15.1
+# WORKDIR /home/app/
+# COPY --from=0 /home/app/package.json ./package.json
+# COPY --from=0 /home/app/dist/ dist/
+CMD [ "npm", "run", "start"]

@@ -10,7 +10,7 @@
       "clean": "rimraf ./dist",
       "check": "./node_modules/.bin/dependency-check package.json --missing",
       "build": "npm run clean && tsc",
-      "prestart": "npm run build",
+      "prestart": "npm run build && npm run check && npm run migrate",
       "start": "node dist/server.js",
       "dev": "nodemon ",
       "migrate": "npm run build && ./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run",

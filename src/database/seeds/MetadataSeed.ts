@@ -8,8 +8,8 @@ export function splitLine(line: string): Metadata {
     const metadata = new Metadata();
     metadata.address = lineSplitted[0];
     metadata.creationBytecode = new Buffer(lineSplitted[1]);
-    metadata.chainId = 1;
-    metadata.blockNumber = 2;
+    metadata.chainId = Number(process.env.CHAIN_ID);
+    //metadata.blockNumber = 2;
     metadata.deployedCodeHash = lineSplitted[1];
     return metadata
 }

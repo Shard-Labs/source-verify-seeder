@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table, TableIndex } from "typeorm";
+import { MigrationInterface, QueryRunner, Table, TableIndex } from "typeorm";
 
 export class Metadata1589115219361 implements MigrationInterface {
 
@@ -34,7 +34,7 @@ export class Metadata1589115219361 implements MigrationInterface {
                 {
                     name: "blockNumber",
                     type: "integer",
-                    isNullable: false
+                    isNullable: true
                 },
                 {
                     name: "deployedCodeHash",
@@ -44,30 +44,30 @@ export class Metadata1589115219361 implements MigrationInterface {
             ]
         }), true);
 
-        // await queryRunner.createIndex("metadata", new TableIndex({
-        //     name: "chainIdAddress_idx",
-        //     columnNames: ["address", "chainId"]
-        // }));
+        await queryRunner.createIndex("metadata", new TableIndex({
+            name: "chainIdAddress_idx",
+            columnNames: ["address", "chainId"]
+        }));
+
+        await queryRunner.createIndex("metadata", new TableIndex({
+            name: "address_idx",
+            columnNames: ["address"]
+        }));
 
         // await queryRunner.createIndex("metadata", new TableIndex({
-        //     name: "address_idx",
-        //     columnNames: ["address"]
-        // }));
-
-        // await queryRunner.createIndex("metadata", new TableIndex({
-        //     name: "chainIdDeployedCodeHashCreationBytecode_idx",
+        //     name: "chainCHCB_idx",
         //     columnNames: ["chainId", "deployedCodeHash", "creationBytecode"]
         // }));
 
         // await queryRunner.createIndex("metadata", new TableIndex({
-        //     name: "addressDeployedCodeHashCreationBytecode_idx",
+        //     name: "addrDCHCrtBtcode_idx",
         //     columnNames: ["address", "deployedCodeHash", "creationBytecode"]
         // }));
 
-        // await queryRunner.createIndex("metadata", new TableIndex({
-        //     name: "addressChainId_idx",
-        //     columnNames: ["address", "chainId"]
-        // }));
+        await queryRunner.createIndex("metadata", new TableIndex({
+            name: "addressChainId_idx",
+            columnNames: ["address", "chainId"]
+        }));
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
